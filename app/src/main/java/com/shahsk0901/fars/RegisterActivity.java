@@ -28,12 +28,17 @@ public class RegisterActivity extends AppCompatActivity {
         View.OnClickListener registerListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Boolean completeData = true;
                 netID = (EditText) findViewById(R.id.netID);
-                if(TextUtils.isEmpty(netID.getText().toString()))
+                if(TextUtils.isEmpty(netID.getText().toString())) {
                     netID.setError("Can't be empty");
+                    completeData = false;
+                }
 
-                Student student = new Student(netID.getText().toString());
-                db.child(netID.getText().toString()).setValue(student);
+                if(completeData) {
+                    Student student = new Student(netID.getText().toString());
+                    db.child(netID.getText().toString()).setValue(student);
+                }
             }
         };
 
