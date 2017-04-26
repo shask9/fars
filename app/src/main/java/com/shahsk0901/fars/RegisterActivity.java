@@ -1,5 +1,6 @@
 package com.shahsk0901.fars;
 
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
