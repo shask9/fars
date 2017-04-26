@@ -12,10 +12,12 @@ import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.regex.Pattern;
+
 public class RegisterActivity extends AppCompatActivity {
 
     private Button register;
-    private EditText netID;
+    private EditText nID;
     private DatabaseReference db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,19 +31,30 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Boolean completeData = true;
-                netID = (EditText) findViewById(R.id.netID);
-                if(TextUtils.isEmpty(netID.getText().toString())) {
-                    netID.setError("Can't be empty");
-                    completeData = false;
-                }
-
+                nID = (EditText) findViewById(R.id.netID);
+                String netID = nID.getText().toString();
+                completeData = checkNetId(netID,nID,completeData);
                 if(completeData) {
-                    Student student = new Student(netID.getText().toString());
-                    db.child(netID.getText().toString()).setValue(student);
+                    Student student = new Student(netID);
+                    db.child(netID).setValue(student);
                 }
             }
         };
 
         register.setOnClickListener(registerListener);
+    }
+
+    public boolean checkNetId(String netID,EditText nID,Boolean completeData) {
+        if(TextUtils.isEmpty(netID)) {
+            nID.setError("Cannot be empty");
+            completeData = false;
+        } else {
+            boolean valid = Pattern.matches("^[a-z]{3}[0-9]{4}$",netID);
+            if(!valid) {
+                nID.setError("Invalid NetID");
+                completeData = false;
+            }
+        }
+        return completeData;
     }
 }
