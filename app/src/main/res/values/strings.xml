@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">FARS</string>
+
+    <string-array name="securityQuestions">
+        <item>Hellooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo?</item>
+        <item>HIiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiijkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk</item>
+    </string-array>
 </resources>

@@ -9,35 +9,64 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.*;
 
-import com.google.firebase.analytics.FirebaseAnalytics;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.regex.Pattern;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    private Button register;
-    private EditText nID;
-    private DatabaseReference db;
+    private DatabaseReference db,checkExistingStudent;
+    private Student student;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
         db = FirebaseDatabase.getInstance().getReference("Student");
-        register = (Button) findViewById(R.id.register);
-
+        final Button register = (Button) findViewById(R.id.register);
+        final Spinner securityQuestions = (Spinner) findViewById(R.id.securityQuestions);
+        final EditText nID = (EditText) findViewById(R.id.netID);
+        final EditText pass = (EditText) findViewById(R.id.password);
+        final EditText name = (EditText) findViewById(R.id.name);
+        securityQuestions.setPrompt("Security Question");
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource
+                (this,R.array.securityQuestions,R.layout.activity_register_spinner);
+        securityQuestions.setAdapter(adapter);
         View.OnClickListener registerListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Boolean completeData = true;
-                nID = (EditText) findViewById(R.id.netID);
-                String netID = nID.getText().toString();
-                completeData = checkNetId(netID,nID,completeData);
-                if(completeData) {
-                    Student student = new Student(netID);
-                    db.child(netID).setValue(student);
+                final String netID = nID.getText().toString();
+                Boolean flag1 = valid(1,netID,nID);
+
+                final String password = pass.getText().toString();
+                Boolean flag2 = valid(2,password,pass);
+
+                final String fullName = name.getText().toString();
+                Boolean flag3 = valid(3,fullName,pass);
+
+                if(flag1 && flag2 && flag3) {
+                    checkExistingStudent = FirebaseDatabase.getInstance().getReference("/Student/"+netID);
+                    checkExistingStudent.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            student = dataSnapshot.getValue(Student.class);
+                            if(student.netID.equals(netID)) {
+                                Toast.makeText(getApplicationContext(),"Student already registered",Toast.LENGTH_SHORT).show();
+                            } else {
+                                Student createStudentAccount = new Student(netID,password,fullName);
+                                db.child(netID).setValue(createStudentAccount);
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+
+                        }
+                    });
                 }
             }
         };
@@ -45,17 +74,35 @@ public class RegisterActivity extends AppCompatActivity {
         register.setOnClickListener(registerListener);
     }
 
-    public boolean checkNetId(String netID,EditText nID,Boolean completeData) {
-        if(TextUtils.isEmpty(netID)) {
-            nID.setError("Cannot be empty");
-            completeData = false;
-        } else {
-            boolean valid = Pattern.matches("^[a-z]{3}[0-9]{4}$",netID);
-            if(!valid) {
-                nID.setError("Invalid NetID");
+    public boolean valid(Integer option,String input,EditText editText) {
+        Boolean completeData = true;
+        if(option == 1) {
+            if(TextUtils.isEmpty(input)) {
+                editText.setError("Cannot be empty");
+                completeData = false;
+            } else {
+                boolean valid = Pattern.matches("^[a-z]{3}[0-9]{4}$",input);
+                if(!valid) {
+                    editText.setError("Invalid NetID");
+                    completeData = false;
+                }
+            }
+        }
+
+        if(option == 2) {
+            if(TextUtils.isEmpty(input)) {
+                editText.setError("Cannot be empty");
                 completeData = false;
             }
         }
+
+        if(option == 3) {
+            if(TextUtils.isEmpty(input)) {
+                editText.setError("Cannot be empty");
+                completeData = false;
+            }
+        }
+
         return completeData;
     }
 }

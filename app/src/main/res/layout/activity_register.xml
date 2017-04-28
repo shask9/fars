@@ -1,146 +1,309 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#e8e8e8"
+    android:clipToPadding="false"
+    android:paddingLeft="0dp"
+    android:paddingRight="0dp"
+    android:paddingTop="0dp"
+    android:paddingBottom="0dp"
+    android:fadeScrollbars="true"
     tools:context="com.shahsk0901.fars.RegisterActivity">
 
-    <TextView
-        android:id="@+id/loginDetails"
-        android:text="Login Credentials"
-        android:textSize="24dp"
-        android:textAlignment="center"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
-        android:background="@android:color/darker_gray"
-        tools:layout_editor_absoluteX="84dp"
-        tools:layout_editor_absoluteY="41dp"
-        android:layout_alignParentTop="true" />
+        android:layout_height="match_parent"
+        android:background="#e8e8e8"
+        android:clipToPadding="false"
+        android:paddingLeft="0dp"
+        android:paddingRight="0dp"
+        android:paddingTop="0dp"
+        android:paddingBottom="0dp"
+        android:fadeScrollbars="true"
+        tools:context="com.shahsk0901.fars.RegisterActivity">
 
-    <EditText
-        android:id="@+id/netID"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="text"
-        android:hint="UTA NetID"
-        tools:layout_editor_absoluteX="84dp"
-        tools:layout_editor_absoluteY="41dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginLeft="20dp"
-        android:layout_below="@+id/loginDetails" />
+        <TextView
+            android:id="@+id/loginDetails"
+            android:text="Login Credentials"
+            android:textSize="24dp"
+            android:elevation="5dp"
+            android:textAlignment="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:background="#d3d3d3"
+            tools:layout_editor_absoluteX="84dp"
+            tools:layout_editor_absoluteY="41dp"
+            android:layout_alignParentTop="true" />
 
-    <TextView
-        android:id="@+id/x1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="*"
-        android:textSize="24dp"
-        android:layout_marginLeft="-40dp"
-        android:layout_alignBaseline="@+id/netID"
-        android:layout_alignBottom="@+id/netID"
-        android:layout_toRightOf="@+id/netID"
-        android:layout_toEndOf="@+id/netID" />
+        <EditText
+            android:id="@+id/netID"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            android:hint="UTA NetID"
+            tools:layout_editor_absoluteX="84dp"
+            tools:layout_editor_absoluteY="41dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginLeft="20dp"
+            android:layout_below="@+id/loginDetails" />
 
-    <EditText
-        android:id="@+id/password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPassword"
-        android:hint="Password"
-        tools:layout_editor_absoluteX="84dp"
-        tools:layout_editor_absoluteY="41dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="50dp"
-        android:layout_below="@+id/netID"
-        android:layout_alignLeft="@+id/netID"
-        android:layout_alignStart="@+id/netID" />
+        <TextView
+            android:id="@+id/x1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="*"
+            android:textSize="24dp"
+            android:layout_marginLeft="-40dp"
+            android:layout_alignBaseline="@+id/netID"
+            android:layout_alignBottom="@+id/netID"
+            android:layout_toRightOf="@+id/netID"
+            android:layout_toEndOf="@+id/netID" />
 
-    <TextView
-        android:id="@+id/x2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="*"
-        android:textSize="24dp"
-        android:layout_marginLeft="-40dp"
-        android:layout_alignBaseline="@+id/password"
-        android:layout_alignBottom="@+id/password"
-        android:layout_toRightOf="@+id/password"
-        android:layout_toEndOf="@+id/password" />
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:hint="Password"
+            tools:layout_editor_absoluteX="84dp"
+            tools:layout_editor_absoluteY="41dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="50dp"
+            android:layout_below="@+id/netID"
+            android:layout_alignLeft="@+id/netID"
+            android:layout_alignStart="@+id/netID" />
 
-    <TextView
-        android:id="@+id/personalDetails"
-        android:layout_below="@+id/password"
-        android:text="Personal Details"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/darker_gray"/>
+        <TextView
+            android:id="@+id/x2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="*"
+            android:textSize="24dp"
+            android:layout_marginLeft="-40dp"
+            android:layout_alignBaseline="@+id/password"
+            android:layout_alignBottom="@+id/password"
+            android:layout_toRightOf="@+id/password"
+            android:layout_toEndOf="@+id/password" />
 
-    <EditText
-        android:id="@+id/name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="Full Name"
-        tools:layout_editor_absoluteX="84dp"
-        tools:layout_editor_absoluteY="41dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginRight="50dp"
-        android:layout_below="@+id/password"
-        android:layout_alignLeft="@+id/password"
-        android:layout_alignStart="@+id/password" />
+        <TextView
+            android:id="@+id/personalDetails"
+            android:layout_below="@+id/password"
+            android:text="Personal Details"
+            android:textSize="24dp"
+            android:textAlignment="center"
+            android:elevation="2dp"
+            android:layout_marginTop="10dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#e0e0e0"/>
 
-    <TextView
-        android:id="@+id/x3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="*"
-        android:textSize="24dp"
-        android:layout_marginLeft="-40dp"
-        android:layout_alignBaseline="@+id/name"
-        android:layout_alignBottom="@+id/name"
-        android:layout_toRightOf="@+id/name"
-        android:layout_toEndOf="@+id/name" />
+        <EditText
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="Full Name"
+            tools:layout_editor_absoluteX="84dp"
+            tools:layout_editor_absoluteY="41dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="50dp"
+            android:layout_below="@+id/personalDetails"
+            android:layout_alignLeft="@+id/netID"
+            android:layout_alignStart="@+id/netID" />
 
-    <EditText
-        android:id="@+id/email"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textEmailAddress"
-        android:hint="UTA Email"
-        tools:layout_editor_absoluteX="84dp"
-        tools:layout_editor_absoluteY="41dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="50dp"
-        android:layout_below="@+id/name"
-        android:layout_alignLeft="@+id/name"
-        android:layout_alignStart="@+id/name" />
+        <TextView
+            android:id="@+id/x3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="*"
+            android:textSize="24dp"
+            android:layout_marginLeft="-40dp"
+            android:layout_alignBaseline="@+id/name"
+            android:layout_alignBottom="@+id/name"
+            android:layout_toRightOf="@+id/name"
+            android:layout_toEndOf="@+id/name" />
 
-    <TextView
-        android:id="@+id/x3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="*"
-        android:textSize="24dp"
-        android:layout_marginLeft="-40dp"
-        android:layout_alignBaseline="@+id/email"
-        android:layout_alignBottom="@+id/email"
-        android:layout_toRightOf="@+id/email"
-        android:layout_toEndOf="@+id/email" />
+        <EditText
+            android:id="@+id/phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text|phone"
+            android:hint="Mobile"
+            tools:layout_editor_absoluteX="84dp"
+            tools:layout_editor_absoluteY="41dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="50dp"
+            android:layout_below="@+id/name"
+            android:layout_alignLeft="@+id/netID"
+            android:layout_alignStart="@+id/netID" />
 
-    <Button
-        android:id="@+id/register"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="63dp"
-        android:text="Register" />
+        <TextView
+            android:id="@+id/x4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="*"
+            android:textSize="24dp"
+            android:layout_marginLeft="-40dp"
+            android:layout_alignBaseline="@+id/phone"
+            android:layout_alignBottom="@+id/phone"
+            android:layout_toRightOf="@+id/phone"
+            android:layout_toEndOf="@+id/phone" />
 
-</RelativeLayout>
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textEmailAddress"
+            android:hint="UTA Email"
+            tools:layout_editor_absoluteX="84dp"
+            tools:layout_editor_absoluteY="41dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="50dp"
+            android:layout_below="@+id/phone"
+            android:layout_alignLeft="@+id/netID"
+            android:layout_alignStart="@+id/netID" />
+
+        <TextView
+            android:id="@+id/x5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="*"
+            android:textSize="24dp"
+            android:layout_marginLeft="-40dp"
+            android:layout_alignBaseline="@+id/email"
+            android:layout_alignBottom="@+id/email"
+            android:layout_toRightOf="@+id/email"
+            android:layout_toEndOf="@+id/email" />
+
+        <EditText
+            android:id="@+id/studentID"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text|number"
+            android:hint="UTA Student ID"
+            tools:layout_editor_absoluteX="84dp"
+            tools:layout_editor_absoluteY="41dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="50dp"
+            android:layout_below="@+id/email"
+            android:layout_alignLeft="@+id/netID"
+            android:layout_alignStart="@+id/netID" />
+
+        <TextView
+            android:id="@+id/x6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="*"
+            android:textSize="24dp"
+            android:layout_marginLeft="-40dp"
+            android:layout_alignBaseline="@+id/studentID"
+            android:layout_alignBottom="@+id/studentID"
+            android:layout_toRightOf="@+id/studentID"
+            android:layout_toEndOf="@+id/studentID" />
+
+        <TextView
+            android:id="@+id/passwordRecovery"
+            android:layout_below="@+id/studentID"
+            android:text="Password Recovery Details"
+            android:textSize="24dp"
+            android:textAlignment="center"
+            android:elevation="2dp"
+            android:layout_marginTop="10dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#e0e0e0"/>
+
+        <TextView
+            android:id="@+id/securityQuestionsLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Security Question"
+            android:textSize="20dp"
+            tools:layout_editor_absoluteX="84dp"
+            tools:layout_editor_absoluteY="41dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="50dp"
+            android:layout_below="@+id/passwordRecovery"
+            android:layout_alignLeft="@+id/netID"
+            android:layout_alignStart="@+id/netID" />
+
+        <TextView
+            android:id="@+id/x7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="*"
+            android:textSize="24dp"
+            android:layout_marginLeft="-40dp"
+            android:layout_alignBaseline="@+id/securityQuestionsLabel"
+            android:layout_alignBottom="@+id/securityQuestionsLabel"
+            android:layout_toRightOf="@+id/securityQuestionsLabel"
+            android:layout_toEndOf="@+id/securityQuestionsLabel" />
+
+        <Spinner
+            android:id="@+id/securityQuestions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="50dp"
+            android:layout_below="@+id/securityQuestionsLabel"
+            android:layout_alignLeft="@+id/netID"
+            android:layout_alignStart="@+id/netID"
+            android:spinnerMode="dialog"/>
+
+        <EditText
+            android:id="@+id/securityAnswer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text|number"
+            android:hint="Security Answer"
+            tools:layout_editor_absoluteX="84dp"
+            tools:layout_editor_absoluteY="41dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="50dp"
+            android:layout_below="@+id/securityQuestions"
+            android:layout_alignLeft="@+id/netID"
+            android:layout_alignStart="@+id/netID" />
+
+        <TextView
+            android:id="@+id/x8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="*"
+            android:textSize="24dp"
+            android:layout_marginLeft="-40dp"
+            android:layout_alignBaseline="@+id/securityAnswer"
+            android:layout_alignBottom="@+id/securityAnswer"
+            android:layout_toRightOf="@+id/securityAnswer"
+            android:layout_toEndOf="@+id/securityAnswer" />
+
+        <Button
+            android:id="@+id/register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Register"
+            android:layout_below="@+id/securityAnswer"
+            android:layout_marginTop="10dp"/>
+
+    </RelativeLayout>
+
+</ScrollView>
