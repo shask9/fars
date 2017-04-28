@@ -7,10 +7,10 @@
     tools:context="com.shahsk0901.fars.LoginActivity">
 
     <EditText
-        android:id="@+id/netID"
+        android:id="@+id/loginID"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Net ID"
+        android:hint="Login ID"
         android:layout_marginTop="20dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"/>
@@ -23,7 +23,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_below="@id/netID"/>
+        android:layout_below="@id/loginID"/>
 
     <Button
         android:id="@+id/login"

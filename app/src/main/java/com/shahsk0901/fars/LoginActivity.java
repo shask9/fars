@@ -17,12 +17,13 @@ public class LoginActivity extends AppCompatActivity {
 
     private DatabaseReference db;
     private Student student;
+    private Administrator admin;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        final EditText nID = (EditText) findViewById(R.id.netID);
+        final EditText log = (EditText) findViewById(R.id.loginID);
         final EditText pass = (EditText) findViewById(R.id.password);
         final TextView register = (TextView) findViewById(R.id.register);
         final TextView forgotPassword = (TextView) findViewById(R.id.forgotPassword);
@@ -32,28 +33,49 @@ public class LoginActivity extends AppCompatActivity {
            @Override
             public void onClick(View v) {
 
-               final String netID = nID.getText().toString();
-               Boolean flag1 = valid(1,netID,nID);
+               final String loginID = log.getText().toString();
+               Boolean flag1 = valid(1,loginID,log);
 
                final String password = pass.getText().toString();
                Boolean flag2 = valid(2,password,pass);
 
                if(flag1 && flag2) {
-                   db = FirebaseDatabase.getInstance().getReference("Student/"+netID);
+                   db = FirebaseDatabase.getInstance().getReference("Administrator/"+loginID);
                    db.addListenerForSingleValueEvent(new ValueEventListener() {
                        @Override
                        public void onDataChange(DataSnapshot dataSnapshot) {
                            if(dataSnapshot.getValue() == null) {
-                               nID.setError("Student not found");
+                               db = FirebaseDatabase.getInstance().getReference("Student/"+loginID);
+                               db.addListenerForSingleValueEvent(new ValueEventListener() {
+                                   @Override
+                                   public void onDataChange(DataSnapshot dataSnapshot) {
+                                       if(dataSnapshot.getValue() == null) {
+                                           log.setError("Student not found");
+                                       } else {
+                                           student = dataSnapshot.getValue(Student.class);
+                                           if(student.accountStatus.equals("Suspended")) {
+                                               Toast.makeText(getApplicationContext(),"Account Suspended",Toast.LENGTH_SHORT).show();
+                                           } else if(!student.password.equals(password)) {
+                                               Toast.makeText(getApplicationContext(),"Invalid Credentials",Toast.LENGTH_SHORT).show();
+                                           } else {
+                                               Intent StudentHome = new Intent(getApplicationContext(),StudentHome.class);
+                                               startActivity(StudentHome);
+                                           }
+                                       }
+                                   }
+
+                                   @Override
+                                   public void onCancelled(DatabaseError databaseError) {
+
+                                   }
+                               });
                            } else {
-                               student = dataSnapshot.getValue(Student.class);
-                               if(student.accountStatus.equals("Suspended")) {
-                                   Toast.makeText(getApplicationContext(),"Account Suspended",Toast.LENGTH_SHORT).show();
-                               } else if(!student.password.equals(password)) {
-                                   Toast.makeText(getApplicationContext(),"Invalid Credentials",Toast.LENGTH_SHORT).show();
+                               admin = dataSnapshot.getValue(Administrator.class);
+                               if(!password.equals(admin.adminPass)) {
+                                   log.setError("Invalid Credentials");
                                } else {
-                                   Intent StudentHome = new Intent(getApplicationContext(),StudentHome.class);
-                                   startActivity(StudentHome);
+                                   Intent AdminHome = new Intent(getApplicationContext(), AdminHome.class);
+                                   startActivity(AdminHome);
                                }
                            }
                        }

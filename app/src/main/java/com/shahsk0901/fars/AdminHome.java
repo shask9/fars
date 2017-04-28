@@ -3,23 +3,11 @@ package com.shahsk0901.fars;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class ForgotPasswordActivity extends AppCompatActivity {
+public class AdminHome extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_forgot_password);
+        setContentView(R.layout.activity_admin_home);
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-

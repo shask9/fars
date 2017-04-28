@@ -23,7 +23,8 @@
             android:exported="true"
             android:label="Create Account" />
         <activity android:name=".StudentHome" />
-        <activity android:name=".ForgotPasswordActivity"></activity>
+        <activity android:name=".ForgotPasswordActivity" />
+        <activity android:name=".AdminHome"></activity>
     </application>
 
 </manifest>
