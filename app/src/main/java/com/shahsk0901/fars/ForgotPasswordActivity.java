@@ -41,7 +41,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(),"Student not found",Toast.LENGTH_SHORT).show();
                         } else {
                             Student student = dataSnapshot.getValue(Student.class);
-                            
+
                         }
                     }
 
