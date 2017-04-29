@@ -2,10 +2,12 @@ package com.shahsk0901.fars;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -34,8 +36,8 @@ public class ViewStudentsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_students);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator(R.mipmap.ic_launcher_round);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setHomeButtonEnabled(true);
 
         lv = (ListView) findViewById(R.id.list);
         adapter = new StudentAdapter(this,R.layout.activity_view_students_list_template,students);
@@ -47,7 +49,7 @@ public class ViewStudentsActivity extends AppCompatActivity {
                 Student student = dataSnapshot.getValue(Student.class);
                 adapter.add(student);
             }
-            ArrayList<Student> update = students;
+
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
                 adapter.clear();
@@ -96,5 +98,11 @@ public class ViewStudentsActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
     }
 }

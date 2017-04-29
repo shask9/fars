@@ -1,6 +1,7 @@
 package com.shahsk0901.fars;
 
 import android.content.Intent;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -25,7 +26,8 @@ public class AdminHome extends AppCompatActivity {
         setContentView(R.layout.activity_admin_home);
         Bundle extras = getIntent().getExtras();
         String adminID = extras.getString("adminID");
-        getSupportActionBar().setTitle(adminID);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_HOME);
 
         final Button students = (Button) findViewById(R.id.viewStudents);
         students.setOnClickListener(new View.OnClickListener() {
