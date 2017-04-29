@@ -49,11 +49,6 @@ public class AdminHome extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case android.R.id.home:
-                Intent intent = new Intent(getApplicationContext(),AdminHome.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
-                break;
             case R.id.ic_logout:
                 SharedPreferences prefs = getSharedPreferences("LOGIN_ID",MODE_PRIVATE);
                 prefs.edit().clear().apply();

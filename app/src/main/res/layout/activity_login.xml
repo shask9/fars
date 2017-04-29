@@ -4,6 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#e8e8e8"
+    android:clipToPadding="false"
+    android:paddingLeft="0dp"
+    android:paddingRight="0dp"
+    android:paddingTop="0dp"
+    android:paddingBottom="0dp"
+    android:fadeScrollbars="true"
     tools:context="com.shahsk0901.fars.LoginActivity">
 
     <EditText
@@ -20,6 +27,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Password"
+        android:inputType="textPassword"
         android:layout_marginTop="10dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
@@ -29,11 +37,11 @@
         android:id="@+id/login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:text="Login"
         android:layout_below="@+id/password"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="20dp"/>
+        android:layout_alignStart="@+id/register"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="92dp" />
 
     <TextView
         android:id="@+id/forgotPassword"
@@ -48,8 +56,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="New student? Register here"
+        android:textSize="20dp"
+        android:layout_marginBottom="10dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/login"
-        android:layout_marginBottom="138dp" />
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

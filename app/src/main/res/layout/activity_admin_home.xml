@@ -5,6 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/adminHome"
+    android:background="#e8e8e8"
+    android:clipToPadding="false"
+    android:paddingLeft="0dp"
+    android:paddingRight="0dp"
+    android:paddingTop="0dp"
+    android:paddingBottom="0dp"
+    android:fadeScrollbars="true"
     tools:context="com.shahsk0901.fars.AdminHome">
 
     <Button

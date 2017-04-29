@@ -18,6 +18,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.regex.Pattern;
+
 public class ForgotPasswordActivity extends AppCompatActivity {
 
     private DatabaseReference db;
@@ -41,8 +43,9 @@ public class ForgotPasswordActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 final String netID = nID.getText().toString();
-                if(TextUtils.isEmpty(netID)) {
-                    nID.setError("Cannot be empty!");
+                Boolean flag1 = valid(1, netID, nID);
+                if(!flag1) {
+                    //nID.setError("Cannot be empty!");
                 } else {
                     db = FirebaseDatabase.getInstance().getReference("Student/"+netID);
                     db.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -99,6 +102,23 @@ public class ForgotPasswordActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    public boolean valid(Integer option, String input, EditText editText) {
+        Boolean completeData = true;
+        if (option == 1) {
+            if (TextUtils.isEmpty(input)) {
+                editText.setError("Cannot be empty");
+                completeData = false;
+            } else {
+                boolean valid = Pattern.matches("^[a-z]{3}[0-9]{4}$", input);
+                if (!valid) {
+                    editText.setError("Invalid NetID");
+                    completeData = false;
+                }
+            }
+        }
+        return completeData;
     }
 
     public void flipScreen(int i,int option) {

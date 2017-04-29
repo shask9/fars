@@ -18,32 +18,27 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".RegisterActivity"
             android:exported="true"
             android:label="Create Account" />
-
         <activity
             android:name=".StudentHome"
             android:exported="true"
             android:label="Student Home" />
-
         <activity
             android:name=".ForgotPasswordActivity"
             android:exported="true"
             android:label="Forgot Password?" />
-
         <activity
             android:name=".AdminHome"
             android:exported="true"
             android:label="Admin Home" />
-
         <activity
             android:name=".ViewStudentsActivity"
             android:exported="true"
             android:label="View Students" />
-
+        <activity android:name=".MyAdvertisements"></activity>
     </application>
 
 </manifest>
