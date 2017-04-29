@@ -12,6 +12,9 @@ public class StudentHome extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_home);
+        Bundle extras = getIntent().getExtras();
+        String netID = extras.getString("netID");
+        getSupportActionBar().setTitle(netID);
 
         final Button logout = (Button) findViewById(R.id.logout);
 

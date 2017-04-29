@@ -25,4 +25,12 @@ public class Student {
         this.securityAnswer = securityAnswer;
         this.accountStatus = accountStatus;
     }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
 }

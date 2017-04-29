@@ -59,6 +59,7 @@ public class LoginActivity extends AppCompatActivity {
                                                Toast.makeText(getApplicationContext(),"Invalid Credentials",Toast.LENGTH_SHORT).show();
                                            } else {
                                                Intent StudentHome = new Intent(getApplicationContext(),StudentHome.class);
+                                               StudentHome.putExtra("netID",student.netID);
                                                startActivity(StudentHome);
                                            }
                                        }
@@ -75,6 +76,7 @@ public class LoginActivity extends AppCompatActivity {
                                    log.setError("Invalid Credentials");
                                } else {
                                    Intent AdminHome = new Intent(getApplicationContext(), AdminHome.class);
+                                   AdminHome.putExtra("adminID",admin.adminID);
                                    startActivity(AdminHome);
                                }
                            }
