@@ -2,8 +2,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:title="Home"
+        android:id="@+id/ic_logout"
+        android:title="Logout"
         android:icon="@drawable/ic_logout"
-        app:showAsAction="always"/>
-
+        app:showAsAction="always" />
 </menu>

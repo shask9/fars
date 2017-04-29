@@ -24,10 +24,9 @@ public class AdminHome extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_home);
-        Bundle extras = getIntent().getExtras();
-        String adminID = extras.getString("adminID");
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_HOME);
+            Bundle extras = getIntent().getExtras();
+            String adminID = extras.getString("adminID");
+            getSupportActionBar().setTitle(adminID);
 
         final Button students = (Button) findViewById(R.id.viewStudents);
         students.setOnClickListener(new View.OnClickListener() {

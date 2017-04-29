@@ -118,4 +118,9 @@ public class LoginActivity extends AppCompatActivity {
         }
         return completeData;
     }
+
+    @Override
+    public void onBackPressed() {
+
+    }
 }
