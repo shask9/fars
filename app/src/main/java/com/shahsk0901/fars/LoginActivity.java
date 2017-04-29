@@ -1,6 +1,7 @@
 package com.shahsk0901.fars;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -58,8 +59,10 @@ public class LoginActivity extends AppCompatActivity {
                                            } else if(!student.password.equals(password)) {
                                                Toast.makeText(getApplicationContext(),"Invalid Credentials",Toast.LENGTH_SHORT).show();
                                            } else {
+                                               SharedPreferences.Editor sharedPreferences = getApplicationContext().getSharedPreferences("LOGIN_ID",MODE_PRIVATE).edit();
+                                               sharedPreferences.putString("loginID",student.netID);
+                                               sharedPreferences.apply();
                                                Intent StudentHome = new Intent(getApplicationContext(),StudentHome.class);
-                                               StudentHome.putExtra("netID",student.netID);
                                                startActivity(StudentHome);
                                            }
                                        }
@@ -75,8 +78,10 @@ public class LoginActivity extends AppCompatActivity {
                                if(!password.equals(admin.adminPass)) {
                                    log.setError("Invalid Credentials");
                                } else {
+                                   SharedPreferences.Editor sharedPreferences = getApplicationContext().getSharedPreferences("LOGIN_ID",MODE_PRIVATE).edit();
+                                   sharedPreferences.putString("loginID",admin.adminID);
+                                   sharedPreferences.apply();
                                    Intent AdminHome = new Intent(getApplicationContext(), AdminHome.class);
-                                   AdminHome.putExtra("adminID",admin.adminID);
                                    startActivity(AdminHome);
                                }
                            }

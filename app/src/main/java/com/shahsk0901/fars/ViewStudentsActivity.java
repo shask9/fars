@@ -2,6 +2,7 @@ package com.shahsk0901.fars;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -34,14 +35,15 @@ public class ViewStudentsActivity extends AppCompatActivity {
     private ListView lv;
     ArrayList<Student> students = new ArrayList<Student>();
     StudentAdapter adapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_students);
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayUseLogoEnabled(false);
-        actionBar.setDisplayHomeAsUpEnabled(true);
-        actionBar.setHomeAsUpIndicator(R.drawable.ic_home);
+
+        String loginID = setActionBar();
+        if(loginID != null)
+            getSupportActionBar().setTitle(getSupportActionBar().getTitle() + " - " + loginID);
 
         lv = (ListView) findViewById(R.id.list);
         adapter = new StudentAdapter(this,R.layout.activity_view_students_list_template,students);
@@ -102,7 +104,7 @@ public class ViewStudentsActivity extends AppCompatActivity {
 
             }
         });
-        db.goOffline();
+        DatabaseReference.goOffline();
     }
 
     @Override
@@ -120,6 +122,8 @@ public class ViewStudentsActivity extends AppCompatActivity {
                 startActivity(intent);
                 break;
             case R.id.ic_logout:
+                SharedPreferences prefs = getSharedPreferences("LOGIN_ID",MODE_PRIVATE);
+                prefs.edit().clear().apply();
                 Intent LoginActivity = new Intent(getApplicationContext(),LoginActivity.class);
                 startActivity(LoginActivity);
                 break;
@@ -133,5 +137,15 @@ public class ViewStudentsActivity extends AppCompatActivity {
     public void onBackPressed() {
         Intent AdminHome = new Intent(getApplicationContext(), AdminHome.class);
         startActivity(AdminHome);
+    }
+
+    public String setActionBar() {
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setHomeAsUpIndicator(R.drawable.ic_home);
+
+        SharedPreferences getSharedData = getSharedPreferences("LOGIN_ID",MODE_PRIVATE);
+        String loginID = getSharedData.getString("loginID",null);
+        return loginID;
     }
 }
