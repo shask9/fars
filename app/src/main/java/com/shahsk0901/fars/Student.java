@@ -33,4 +33,8 @@ public class Student {
     public void setFullName(String fullName) {
         this.fullName = fullName;
     }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }
