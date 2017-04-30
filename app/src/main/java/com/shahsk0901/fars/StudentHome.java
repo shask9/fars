@@ -20,12 +20,21 @@ public class StudentHome extends AppCompatActivity {
         setActionBar();
 
         final Button postAdvertisement = (Button) findViewById(R.id.postAdvertisement);
+        final Button updatePassword = (Button) findViewById(R.id.updatePassword);
 
         postAdvertisement.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent PostAnAdvertisementActivity = new Intent(getApplicationContext(), PostAnAdvertisementActivity.class);
                 startActivity(PostAnAdvertisementActivity);
+            }
+        });
+
+        updatePassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent UpdatePassswordActivity = new Intent(getApplicationContext(), UpdatePasswordActivity.class);
+                startActivity(UpdatePassswordActivity);
             }
         });
     }

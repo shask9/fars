@@ -14,11 +14,14 @@ public class Advertisement {
     public List<String> utilities = new ArrayList<>();
     public String availability;
     public String dateAvailable;
+    public String gender;
+    public String contactDetails;
+    public String additionalDetails;
 
     Advertisement() {
 
     }
-    Advertisement(String advertisementID,String netID,String dateCreated, String adType, String aptType,String aptLoc,String rentShare,List<String> utilities, String availability, String dateAvailable) {
+    Advertisement(String advertisementID,String netID,String dateCreated, String adType, String aptType,String aptLoc,String rentShare,List<String> utilities, String availability, String dateAvailable, String gender,String contactDetails,String additionalDetails) {
         this.advertisementID = advertisementID;
         this.netID = netID;
         this.dateCreated = dateCreated;
@@ -29,5 +32,8 @@ public class Advertisement {
         this.utilities = utilities;
         this.availability = availability;
         this.dateAvailable = dateAvailable;
+        this.gender = gender;
+        this.contactDetails = contactDetails;
+        this.additionalDetails = additionalDetails;
     }
 }

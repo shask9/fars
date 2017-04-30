@@ -13,6 +13,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
@@ -99,6 +100,11 @@ public class PostAnAdvertisementActivity extends AppCompatActivity {
 
         final DatePicker datePicker = (DatePicker) findViewById(R.id.datePicker);
 
+        final RadioGroup gender = (RadioGroup) findViewById(R.id.gender);
+
+        final EditText mobile = (EditText) findViewById(R.id.contactDetails);
+
+        final EditText description = (EditText) findViewById(R.id.otherDetails);
 
         post.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -140,7 +146,15 @@ public class PostAnAdvertisementActivity extends AppCompatActivity {
 
                         final String date = month.toString() + " " + day.toString() + " " + year.toString();
 
-                        Advertisement ad = new Advertisement(adID,netID,dateCreated,adType,aptType,location,rentShare,utilities,availableStatus,date);
+                        Integer genderID = gender.getCheckedRadioButtonId();
+                        RadioButton setGender = (RadioButton) findViewById(genderID);
+                        final String genderStatus = setGender.getText().toString();
+
+                        final String contactDetails = mobile.getText().toString();
+
+                        final String additionalDetails = description.getText().toString();
+
+                        Advertisement ad = new Advertisement(adID,netID,dateCreated,adType,aptType,location,rentShare,utilities,availableStatus,date,genderStatus,contactDetails,additionalDetails);
                         db.child(adID).setValue(ad);
                     }
 
