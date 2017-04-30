@@ -18,6 +18,16 @@ public class StudentHome extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_home);
         setActionBar();
+
+        final Button postAdvertisement = (Button) findViewById(R.id.postAdvertisement);
+
+        postAdvertisement.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent PostAnAdvertisementActivity = new Intent(getApplicationContext(), PostAnAdvertisementActivity.class);
+                startActivity(PostAnAdvertisementActivity);
+            }
+        });
     }
 
     @Override

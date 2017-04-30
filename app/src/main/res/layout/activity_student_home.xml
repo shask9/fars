@@ -13,4 +13,13 @@
     android:fadeScrollbars="true"
     tools:context="com.shahsk0901.fars.StudentHome">
 
+    <Button
+        android:id="@+id/postAdvertisement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="75dp"
+        android:text="Post Advertisement" />
+
 </RelativeLayout>

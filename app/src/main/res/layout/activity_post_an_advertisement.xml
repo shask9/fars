@@ -1,22 +1,372 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#e8e8e8"
+    android:clipToPadding="false"
+    android:paddingLeft="0dp"
+    android:paddingRight="0dp"
+    android:paddingTop="0dp"
+    android:paddingBottom="0dp"
+    android:fadeScrollbars="true"
     tools:context="com.shahsk0901.fars.PostAnAdvertisementActivity">
 
-    <Button
-        android:id="@+id/postAd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Post"
-        tools:layout_editor_absoluteX="147dp"
-        tools:layout_editor_absoluteY="230dp" />
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#e8e8e8"
+        android:clipToPadding="false"
+        android:paddingLeft="0dp"
+        android:paddingRight="0dp"
+        android:paddingTop="0dp"
+        android:paddingBottom="0dp"
+        android:fadeScrollbars="true">
 
-    <TextView
-        android:id="@+id/demo"
-        android:textSize="36dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-</RelativeLayout>
+        <TextView
+            android:id="@+id/advertisementDetails"
+            android:text="Advertisement Details"
+            android:textSize="24dp"
+            android:elevation="5dp"
+            android:textAlignment="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:background="#d3d3d3"
+            tools:layout_editor_absoluteX="84dp"
+            tools:layout_editor_absoluteY="41dp"
+            android:layout_alignParentTop="true" />
+
+        <TextView
+            android:id="@+id/adTypeLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Advertisement Type"
+            android:textSize="20dp"
+            tools:layout_editor_absoluteX="84dp"
+            tools:layout_editor_absoluteY="41dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="50dp"
+            android:layout_below="@+id/advertisementDetails"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="50dp" />
+
+        <TextView
+            android:id="@+id/x1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="*"
+            android:textSize="24dp"
+            android:layout_marginLeft="-40dp"
+            android:layout_alignBaseline="@+id/adTypeLabel"
+            android:layout_alignBottom="@+id/adTypeLabel"
+            android:layout_toRightOf="@+id/adTypeLabel"
+            android:layout_toEndOf="@+id/adTypeLabel" />
+
+        <Spinner
+            android:id="@+id/adType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="50dp"
+            android:layout_below="@+id/adTypeLabel"
+            android:layout_alignLeft="@+id/adTypeLabel"
+            android:layout_alignStart="@+id/adTypeLabel"
+            android:spinnerMode="dialog"/>
+
+        <TextView
+            android:id="@+id/div1"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#d3d3d3"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/adType" />
+
+        <TextView
+            android:id="@+id/aptTypeLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Apartment Type"
+            android:textSize="20dp"
+            tools:layout_editor_absoluteX="84dp"
+            tools:layout_editor_absoluteY="41dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="50dp"
+            android:layout_below="@+id/div1"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="50dp" />
+
+        <TextView
+            android:id="@+id/x4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="*"
+            android:textSize="24dp"
+            android:layout_marginLeft="-40dp"
+            android:layout_alignBaseline="@+id/aptTypeLabel"
+            android:layout_alignBottom="@+id/aptTypeLabel"
+            android:layout_toRightOf="@+id/aptTypeLabel"
+            android:layout_toEndOf="@+id/aptTypeLabel" />
+
+
+        <Spinner
+            android:id="@+id/aptType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="50dp"
+            android:layout_below="@+id/aptTypeLabel"
+            android:layout_alignLeft="@+id/adTypeLabel"
+            android:layout_alignStart="@+id/adTypeLabel"
+            android:spinnerMode="dialog"/>
+
+        <TextView
+            android:id="@+id/div5"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#d3d3d3"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/aptType" />
+
+        <TextView
+            android:id="@+id/aptLocationLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Apartment Location"
+            android:textSize="20dp"
+            tools:layout_editor_absoluteX="84dp"
+            tools:layout_editor_absoluteY="41dp"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/div5"
+            android:layout_alignLeft="@+id/adTypeLabel"
+            android:layout_alignStart="@+id/adTypeLabel"/>
+
+        <TextView
+            android:id="@+id/x2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="*"
+            android:textSize="24dp"
+            android:layout_marginLeft="-40dp"
+            android:layout_alignBaseline="@+id/aptLocationLabel"
+            android:layout_alignBottom="@+id/aptLocationLabel"
+            android:layout_toRightOf="@+id/aptLocationLabel"
+            android:layout_toEndOf="@+id/aptLocationLabel" />
+
+
+        <RadioGroup
+            android:id="@+id/location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/aptLocationLabel"
+            android:layout_alignLeft="@+id/adTypeLabel"
+            android:layout_alignStart="@+id/adTypeLabel">
+
+            <RadioButton
+                android:id="@+id/locationOn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="On Campus"
+                android:checked="true"/>
+
+            <RadioButton
+                android:id="@+id/locationOff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:text="Off Campus"/>
+
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/div2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#d3d3d3"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/location" />
+
+        <TextView
+            android:id="@+id/rentShareLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Rent Share ($)"
+            android:textSize="20dp"
+            tools:layout_editor_absoluteX="84dp"
+            tools:layout_editor_absoluteY="41dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="50dp"
+            android:layout_below="@+id/div2"
+            android:layout_alignLeft="@+id/adTypeLabel"
+            android:layout_alignStart="@+id/adTypeLabel"/>
+
+        <TextView
+            android:id="@+id/x3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="*"
+            android:textSize="24dp"
+            android:layout_marginLeft="-40dp"
+            android:layout_alignBaseline="@+id/rentShareLabel"
+            android:layout_alignBottom="@+id/rentShareLabel"
+            android:layout_toRightOf="@+id/rentShareLabel"
+            android:layout_toEndOf="@+id/rentShareLabel" />
+
+        <android.support.v7.widget.AppCompatSeekBar
+            android:id="@+id/rentShare"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/rentShareLabel"
+            android:max="1000"
+            android:progress="100"/>
+
+        <TextView
+            android:id="@+id/showProgress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            tools:layout_editor_absoluteX="84dp"
+            tools:layout_editor_absoluteY="41dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_below="@+id/rentShare"
+            android:layout_alignLeft="@+id/adTypeLabel"
+            android:layout_alignStart="@+id/adTypeLabel"/>
+
+        <TextView
+            android:id="@+id/div3"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#d3d3d3"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/showProgress" />
+
+        <TextView
+            android:id="@+id/utilitiesLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Utilities"
+            android:textSize="20dp"
+            tools:layout_editor_absoluteX="84dp"
+            tools:layout_editor_absoluteY="41dp"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/div3"
+            android:layout_alignLeft="@+id/adTypeLabel"
+            android:layout_alignStart="@+id/adTypeLabel"
+            android:layout_marginEnd="50dp" />
+
+        <android.support.v7.widget.AppCompatCheckBox
+            android:id="@+id/utilitiesWifi"
+            android:text="Wi-Fi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/utilitiesLabel"
+            android:layout_alignLeft="@+id/adTypeLabel"
+            android:layout_alignStart="@+id/adTypeLabel"/>
+
+        <android.support.v7.widget.AppCompatCheckBox
+            android:id="@+id/utilitiesElectricityBill"
+            android:text="Electricity Bill"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/utilitiesLabel"
+            android:layout_marginStart="10dp"
+            android:layout_toRightOf="@+id/utilitiesWifi"/>
+
+        <android.support.v7.widget.AppCompatCheckBox
+            android:id="@+id/utilitiesLaundry"
+            android:text="Laundry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/utilitiesLabel"
+            android:layout_marginStart="10dp"
+            android:layout_toRightOf="@id/utilitiesElectricityBill"/>
+
+        <TextView
+            android:id="@+id/div4"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#d3d3d3"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/utilitiesWifi" />
+
+        <TextView
+            android:id="@+id/AvailabilityLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Availability"
+            android:textSize="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/div4"
+            android:layout_alignLeft="@+id/adTypeLabel"
+            android:layout_alignStart="@+id/adTypeLabel"
+            android:layout_marginEnd="50dp" />
+
+        <RadioGroup
+            android:id="@+id/availibility"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/AvailabilityLabel"
+            android:layout_alignLeft="@+id/adTypeLabel"
+            android:layout_alignStart="@+id/adTypeLabel">
+
+            <RadioButton
+                android:id="@+id/permanent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Permanent"
+                android:checked="true"/>
+
+            <RadioButton
+                android:id="@+id/temporary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:text="Temporary"/>
+
+        </RadioGroup>
+
+        <DatePicker
+            android:id="@+id/datePicker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="10dp"
+            android:background="@color/cardview_light_background"
+            android:elevation="5dp"
+            android:transitionGroup="true"
+            android:layout_marginStart="30dp"
+            android:layout_below="@+id/availibility" />
+
+        <TextView
+            android:id="@+id/div6"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#d3d3d3"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/datePicker" />
+
+        <Button
+            android:id="@+id/postAd"
+            android:text="Post Advertisement"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="150dp"
+            android:layout_below="@+id/div6"/>
+
+    </RelativeLayout>
+
+</ScrollView>

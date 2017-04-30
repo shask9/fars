@@ -38,12 +38,15 @@
             android:name=".ViewStudentsActivity"
             android:exported="true"
             android:label="View Students" />
-        <activity android:name=".MyAdvertisements"
+        <activity
+            android:name=".MyAdvertisements"
             android:exported="true"
-            android:label="My Advertisement"/>
-        <activity android:name=".PostAnAdvertisementActivity"
+            android:label="My Advertisement" />
+        <activity
+            android:name=".PostAnAdvertisementActivity"
             android:exported="true"
-            android:label="Post New Advertisement"></activity>
+            android:label="Post New Advertisement" />
+        <activity android:name=".UpdatePasswordActivity"></activity>
     </application>
 
 </manifest>
