@@ -6,6 +6,7 @@ import android.provider.MediaStore;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -34,6 +35,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class PostAnAdvertisementActivity extends AppCompatActivity {
 
@@ -151,11 +153,13 @@ public class PostAnAdvertisementActivity extends AppCompatActivity {
                         final String genderStatus = setGender.getText().toString();
 
                         final String contactDetails = mobile.getText().toString();
-
+                        Boolean flag1 = valid(1,contactDetails,mobile);
                         final String additionalDetails = description.getText().toString();
-
-                        Advertisement ad = new Advertisement(adID,netID,dateCreated,adType,aptType,location,rentShare,utilities,availableStatus,date,genderStatus,contactDetails,additionalDetails);
-                        db.child(adID).setValue(ad);
+                        if(flag1) {
+                            Advertisement ad = new Advertisement(adID,netID,dateCreated,adType,aptType,location,rentShare,utilities,availableStatus,date,genderStatus,contactDetails,additionalDetails);
+                            db.child(adID).setValue(ad);
+                            Toast.makeText(getApplicationContext(),"Advertisement posted successfully",Toast.LENGTH_SHORT).show();
+                        }
                     }
 
                     @Override
@@ -175,6 +179,23 @@ public class PostAnAdvertisementActivity extends AppCompatActivity {
         SharedPreferences getSharedData = getSharedPreferences("LOGIN_ID",MODE_PRIVATE);
         String loginID = getSharedData.getString("loginID",null);
         return loginID;
+    }
+
+    public boolean valid(Integer option, String input, EditText editText) {
+        Boolean completeData = true;
+        if (option == 1) {
+            if (TextUtils.isEmpty(input)) {
+                editText.setError("Cannot be empty");
+                completeData = false;
+            } else {
+                boolean valid = Pattern.matches("^[0-9]{10}$", input);
+                if (!valid) {
+                    editText.setError("Invalid number");
+                    completeData = false;
+                }
+            }
+        }
+        return completeData;
     }
 
     @Override

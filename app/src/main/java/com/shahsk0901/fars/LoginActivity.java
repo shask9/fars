@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Html;
 import android.text.TextUtils;
 import android.widget.*;
 import android.view.*;
@@ -29,7 +30,8 @@ public class LoginActivity extends AppCompatActivity {
         final TextView register = (TextView) findViewById(R.id.register);
         final TextView forgotPassword = (TextView) findViewById(R.id.forgotPassword);
         final Button login = (Button) findViewById(R.id.login);
-
+        forgotPassword.setText(Html.fromHtml("<a href='#'><b>Forgot Password? Click Here</b></a>"));
+        register.setText(Html.fromHtml("<a href='#'><b>New student? Register here</b></a>"));
         login.setOnClickListener(new View.OnClickListener() {
            @Override
             public void onClick(View v) {
@@ -124,8 +126,4 @@ public class LoginActivity extends AppCompatActivity {
         return completeData;
     }
 
-    @Override
-    public void onBackPressed() {
-
-    }
 }

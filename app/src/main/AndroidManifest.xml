@@ -46,7 +46,10 @@
             android:name=".PostAnAdvertisementActivity"
             android:exported="true"
             android:label="Post New Advertisement" />
-        <activity android:name=".UpdatePasswordActivity"></activity>
+        <activity
+            android:name=".UpdatePasswordActivity"
+            android:exported="true"
+            android:label="Update Password" />
     </application>
 
 </manifest>
