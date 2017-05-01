@@ -50,7 +50,7 @@ public class AdminHome extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.ic_logout:
-                SharedPreferences prefs = getSharedPreferences("LOGIN_ID",MODE_PRIVATE);
+                SharedPreferences prefs = getSharedPreferences("ADMIN_LOGIN_ID",MODE_PRIVATE);
                 prefs.edit().clear().apply();
                 Intent LoginActivity = new Intent(getApplicationContext(),LoginActivity.class);
                 startActivity(LoginActivity);
@@ -66,7 +66,7 @@ public class AdminHome extends AppCompatActivity {
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setHomeAsUpIndicator(R.drawable.ic_home);
 
-        SharedPreferences getSharedData = getSharedPreferences("LOGIN_ID",MODE_PRIVATE);
+        SharedPreferences getSharedData = getSharedPreferences("ADMIN_LOGIN_ID",MODE_PRIVATE);
         String loginID = getSharedData.getString("loginID",null);
         return loginID;
     }

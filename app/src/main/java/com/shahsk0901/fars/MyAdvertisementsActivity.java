@@ -9,7 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-public class MyAdvertisements extends AppCompatActivity {
+public class MyAdvertisementsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +27,10 @@ public class MyAdvertisements extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case android.R.id.home:
+                Intent StudentHome = new Intent(getApplicationContext(),StudentHome.class);
+                startActivity(StudentHome);
+                break;
             case R.id.ic_logout:
                 SharedPreferences prefs = getSharedPreferences("LOGIN_ID",MODE_PRIVATE);
                 prefs.edit().clear().apply();
@@ -51,6 +55,7 @@ public class MyAdvertisements extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Toast.makeText(getApplicationContext(),"Please Logout",Toast.LENGTH_SHORT).show();
+        Intent StudentHome = new Intent(getApplicationContext(), StudentHome.class);
+        startActivity(StudentHome);
     }
 }

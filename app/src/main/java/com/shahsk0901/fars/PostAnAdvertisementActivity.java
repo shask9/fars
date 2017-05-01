@@ -159,6 +159,8 @@ public class PostAnAdvertisementActivity extends AppCompatActivity {
                             Advertisement ad = new Advertisement(adID,netID,dateCreated,adType,aptType,location,rentShare,utilities,availableStatus,date,genderStatus,contactDetails,additionalDetails);
                             db.child(adID).setValue(ad);
                             Toast.makeText(getApplicationContext(),"Advertisement posted successfully",Toast.LENGTH_SHORT).show();
+                            Intent MyAdvertisementsActivity = new Intent(getApplicationContext(), MyAdvertisementsActivity.class);
+                            startActivity(MyAdvertisementsActivity);
                         }
                     }
 

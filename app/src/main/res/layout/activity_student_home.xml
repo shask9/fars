@@ -14,22 +14,34 @@
     tools:context="com.shahsk0901.fars.StudentHome">
 
     <Button
-        android:id="@+id/postAdvertisement"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="75dp"
-        android:text="Post Advertisement" />
-
-    <Button
         android:id="@+id/updatePassword"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:layout_below="@id/postAdvertisement"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
         android:text="Update Password" />
+
+    <Button
+        android:id="@+id/postAdvertisement"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_alignStart="@id/updatePassword"
+        android:layout_alignEnd="@id/updatePassword"
+        android:layout_below="@id/updatePassword"
+        android:text="Post Advertisement" />
+
+    <Button
+        android:id="@+id/myAdvertisements"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_alignStart="@id/postAdvertisement"
+        android:layout_alignEnd="@id/postAdvertisement"
+        android:layout_below="@id/postAdvertisement"
+        android:text="My Advertisements" />
 
 </RelativeLayout>

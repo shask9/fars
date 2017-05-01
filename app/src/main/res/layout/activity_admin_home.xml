@@ -30,8 +30,8 @@
         android:text="Reported Advertisements"
         android:layout_marginStart="25dp"
         android:layout_marginEnd="25dp"
-        android:layout_below="@id/viewStudents"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="15dp"
+        android:layout_below="@id/viewStudents" />
 
 
 </RelativeLayout>

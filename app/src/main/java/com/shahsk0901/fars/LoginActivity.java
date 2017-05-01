@@ -23,6 +23,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        checkLogin();
         setContentView(R.layout.activity_login);
 
         final EditText log = (EditText) findViewById(R.id.loginID);
@@ -30,7 +31,7 @@ public class LoginActivity extends AppCompatActivity {
         final TextView register = (TextView) findViewById(R.id.register);
         final TextView forgotPassword = (TextView) findViewById(R.id.forgotPassword);
         final Button login = (Button) findViewById(R.id.login);
-        forgotPassword.setText(Html.fromHtml("<a href='#'><b>Forgot Password? Click Here</b></a>"));
+        forgotPassword.setText(Html.fromHtml("<a href=\"#\"><b style=\"background-color:black\">Forgot Password? Click Here</b></a>"));
         register.setText(Html.fromHtml("<a href='#'><b>New student? Register here</b></a>"));
         login.setOnClickListener(new View.OnClickListener() {
            @Override
@@ -80,7 +81,7 @@ public class LoginActivity extends AppCompatActivity {
                                if(!password.equals(admin.adminPass)) {
                                    log.setError("Invalid Credentials");
                                } else {
-                                   SharedPreferences.Editor sharedPreferences = getApplicationContext().getSharedPreferences("LOGIN_ID",MODE_PRIVATE).edit();
+                                   SharedPreferences.Editor sharedPreferences = getApplicationContext().getSharedPreferences("ADMIN_LOGIN_ID",MODE_PRIVATE).edit();
                                    sharedPreferences.putString("loginID",admin.adminID);
                                    sharedPreferences.apply();
                                    Intent AdminHome = new Intent(getApplicationContext(), AdminHome.class);
@@ -124,6 +125,22 @@ public class LoginActivity extends AppCompatActivity {
             }
         }
         return completeData;
+    }
+
+    public void checkLogin() {
+        SharedPreferences getSharedData = getSharedPreferences("LOGIN_ID",MODE_PRIVATE);
+        String loginID = getSharedData.getString("loginID",null);
+        if(loginID!=null) {
+            Intent StudentHome = new Intent(getApplicationContext(),StudentHome.class);
+            startActivity(StudentHome);
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.addCategory(Intent.CATEGORY_HOME);
+        startActivity(intent);
     }
 
 }

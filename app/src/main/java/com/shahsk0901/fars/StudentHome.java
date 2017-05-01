@@ -21,6 +21,7 @@ public class StudentHome extends AppCompatActivity {
 
         final Button postAdvertisement = (Button) findViewById(R.id.postAdvertisement);
         final Button updatePassword = (Button) findViewById(R.id.updatePassword);
+        final Button myAdvertisements = (Button) findViewById(R.id.myAdvertisements);
 
         postAdvertisement.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -35,6 +36,14 @@ public class StudentHome extends AppCompatActivity {
             public void onClick(View v) {
                 Intent UpdatePassswordActivity = new Intent(getApplicationContext(), UpdatePasswordActivity.class);
                 startActivity(UpdatePassswordActivity);
+            }
+        });
+
+        myAdvertisements.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent MyAdvertisementsActivity = new Intent(getApplicationContext(), MyAdvertisementsActivity.class);
+                startActivity(MyAdvertisementsActivity);
             }
         });
     }
@@ -67,6 +76,7 @@ public class StudentHome extends AppCompatActivity {
 
         SharedPreferences getSharedData = getSharedPreferences("LOGIN_ID",MODE_PRIVATE);
         String loginID = getSharedData.getString("loginID",null);
+        actionBar.setTitle(loginID + "'s Home");
         return loginID;
     }
 

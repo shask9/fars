@@ -39,7 +39,7 @@
             android:exported="true"
             android:label="View Students" />
         <activity
-            android:name=".MyAdvertisements"
+            android:name=".MyAdvertisementsActivity"
             android:exported="true"
             android:label="My Advertisement" />
         <activity
