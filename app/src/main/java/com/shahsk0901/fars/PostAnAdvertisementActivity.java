@@ -48,6 +48,8 @@ public class PostAnAdvertisementActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post_an_advertisement);
         final String netID = setActionBar();
+        SharedPreferences getSharedData = getSharedPreferences("LOGIN_ID",MODE_PRIVATE);
+        final String studentName = getSharedData.getString("studentName",null);
         final Button post = (Button) findViewById(R.id.postAd);
 
         //Ad Type Spinner
@@ -156,7 +158,7 @@ public class PostAnAdvertisementActivity extends AppCompatActivity {
                         Boolean flag1 = valid(1,contactDetails,mobile);
                         final String additionalDetails = description.getText().toString();
                         if(flag1) {
-                            Advertisement ad = new Advertisement(adID,netID,dateCreated,adType,aptType,location,rentShare,utilities,availableStatus,date,genderStatus,contactDetails,additionalDetails);
+                            Advertisement ad = new Advertisement(adID,studentName,netID,dateCreated,adType,aptType,location,rentShare,utilities,availableStatus,date,genderStatus,contactDetails,additionalDetails,"Active");
                             db.child(adID).setValue(ad);
                             Toast.makeText(getApplicationContext(),"Advertisement posted successfully",Toast.LENGTH_SHORT).show();
                             Intent MyAdvertisementsActivity = new Intent(getApplicationContext(), MyAdvertisementsActivity.class);

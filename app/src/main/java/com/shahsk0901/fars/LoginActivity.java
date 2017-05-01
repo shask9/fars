@@ -31,7 +31,7 @@ public class LoginActivity extends AppCompatActivity {
         final TextView register = (TextView) findViewById(R.id.register);
         final TextView forgotPassword = (TextView) findViewById(R.id.forgotPassword);
         final Button login = (Button) findViewById(R.id.login);
-        forgotPassword.setText(Html.fromHtml("<a href=\"#\"><b style=\"background-color:black\">Forgot Password? Click Here</b></a>"));
+        forgotPassword.setText(Html.fromHtml("<a href='#'><b>Forgot Password? Click Here</b></a>"));
         register.setText(Html.fromHtml("<a href='#'><b>New student? Register here</b></a>"));
         login.setOnClickListener(new View.OnClickListener() {
            @Override
@@ -64,6 +64,7 @@ public class LoginActivity extends AppCompatActivity {
                                            } else {
                                                SharedPreferences.Editor sharedPreferences = getApplicationContext().getSharedPreferences("LOGIN_ID",MODE_PRIVATE).edit();
                                                sharedPreferences.putString("loginID",student.netID);
+                                               sharedPreferences.putString("studentName",student.fullName);
                                                sharedPreferences.apply();
                                                Intent StudentHome = new Intent(getApplicationContext(),StudentHome.class);
                                                startActivity(StudentHome);
