@@ -50,6 +50,8 @@
             android:name=".UpdatePasswordActivity"
             android:exported="true"
             android:label="Update Password" />
+        <activity android:name=".FindARoommateActivity" />
+        <activity android:name=".RoommateResult"></activity>
     </application>
 
 </manifest>

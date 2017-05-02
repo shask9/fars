@@ -65,6 +65,7 @@ public class LoginActivity extends AppCompatActivity {
                                                SharedPreferences.Editor sharedPreferences = getApplicationContext().getSharedPreferences("LOGIN_ID",MODE_PRIVATE).edit();
                                                sharedPreferences.putString("loginID",student.netID);
                                                sharedPreferences.putString("studentName",student.fullName);
+                                               sharedPreferences.putString("mobile",student.mobile);
                                                sharedPreferences.apply();
                                                Intent StudentHome = new Intent(getApplicationContext(),StudentHome.class);
                                                startActivity(StudentHome);
